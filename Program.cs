@@ -19,6 +19,10 @@ namespace Abi_MVC
                 });
             });
 
+            builder.Services.AddAuthentication("Cookies");
+            builder.Services.AddAuthorization();
+            builder.Services.AddSession();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -31,9 +35,10 @@ namespace Abi_MVC
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -1,44 +1,16 @@
-﻿@model List<FileResponse>
-@{
+﻿@{
+    string login=null;
+    string pass=null;
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <div class="navbar-nav-scroll">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">
-                        Название тендера
-                    </th>
-                    <th scope="col">
-                        Дата начала
-                    </th>
-                    <th scope="col">
-                        Дата конца
-                    </th>
-                    <th scope="col">
-                        URL тендера
-                    </th>
-                </tr>
-            </thead>
-            @foreach(var item in Model)
-            {
-                <tr>
-                    <td scope="row">
-                        @item.Name
-                    </td>
-                    <td scope="row">
-                        @item.StartDate
-                    </td>
-                    <td scope="row">
-                        @item.EndDate
-                    </td>
-                    <td scope="row">
-                        @item.Url
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
-</div>
+<form class="form-control" asp-controller="Home" asp-action="Auth">
+    <label>Логин</label>
+    <input asp-for="@login" type="text" class="form-control" />
+    <br />
+    <label>Пароль</label>
+    <input asp-for="@pass" type="password" class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Войти" />
+</form>
+
