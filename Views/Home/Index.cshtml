@@ -1,0 +1,44 @@
+﻿@model List<FileResponse>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="navbar-nav-scroll">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Название тендера
+                    </th>
+                    <th scope="col">
+                        Дата начала
+                    </th>
+                    <th scope="col">
+                        Дата конца
+                    </th>
+                    <th scope="col">
+                        URL тендера
+                    </th>
+                </tr>
+            </thead>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td scope="row">
+                        @item.Name
+                    </td>
+                    <td scope="row">
+                        @item.StartDate
+                    </td>
+                    <td scope="row">
+                        @item.EndDate
+                    </td>
+                    <td scope="row">
+                        @item.Url
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
